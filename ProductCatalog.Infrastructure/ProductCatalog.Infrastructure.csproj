@@ -14,4 +14,14 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProductCatalog.Application\ProductCatalog.Application.csproj" />
+    <ProjectReference Include="..\ProductCatalog.Domain\ProductCatalog.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Folder Include="Common\" />
+	<Folder Include="Interfaces" />
+  </ItemGroup>
+
 </Project>
