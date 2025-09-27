@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "c3fefa99-557e-43c2-a630-41396b094734",
+		"name": "PoductCategory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39510688"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7011/api/Product/{{productId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7011",
+							"path": [
+								"api",
+								"Product",
+								"{{productId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7011/api/Product/{{productId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7011",
+							"path": [
+								"api",
+								"Product",
+								"{{productId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7011/api/Product?page=1&pageSize=10",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7011",
+							"path": [
+								"api",
+								"Product"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateName",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"Barev\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7011/api/Product/{{productId}}/name",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7011",
+							"path": [
+								"api",
+								"Product",
+								"{{productId}}",
+								"name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCategories",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    6 ,9 , 2\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7011/api/Product/{{productId}}/categories",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7011",
+							"path": [
+								"api",
+								"Product",
+								"{{productId}}",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddCategory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    6 ,9 , 2\r\n]"
+						},
+						"url": {
+							"raw": "https://localhost:7011/api/Product/{{productId}}/categories/{{productCategoryId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7011",
+							"path": [
+								"api",
+								"Product",
+								"{{productId}}",
+								"categories",
+								"{{productCategoryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategoryById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7011/api/Product/{{productId}}/categories/{{productCategoryId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7011",
+							"path": [
+								"api",
+								"Product",
+								"{{productId}}",
+								"categories",
+								"{{productCategoryId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7011/api/Category/{{categoryId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7011",
+							"path": [
+								"api",
+								"Category",
+								"{{categoryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateName",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7011/api/Category/{{categoryId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7011",
+							"path": [
+								"api",
+								"Category",
+								"{{categoryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllCategory",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Abc\"\r\n}"
+						},
+						"url": {
+							"raw": "https://localhost:7011/api/Category?page=1&pageSize=30",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7011",
+							"path": [
+								"api",
+								"Category"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategoryById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Abc\"\r\n}"
+						},
+						"url": {
+							"raw": "https://localhost:7011/api/Category/{{categoryId}}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7011",
+							"path": [
+								"api",
+								"Category",
+								"{{categoryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7011/api/Category",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7011",
+							"path": [
+								"api",
+								"Category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"ABCD\",\r\n  \"categoryIds\": [\r\n    3,5,7\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7011/api/Product",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7011",
+					"path": [
+						"api",
+						"Product"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
