@@ -13,7 +13,10 @@ namespace ProductCatalog.Application.Interfaces
         Task<ProductReadDto?> GetByIdAsync(int id);
         Task<PagedResult<ProductReadDto>> GetPagedAsync(int page, int pageSize);
         Task<ProductReadDto> CreateAsync(ProductCreateDto dto);
-        Task<ProductReadDto?> UpdateAsync(int id, ProductCreateDto dto);
+        Task<ProductReadDto?> UpdateNameAsync(int id, string newName);
+        Task<ProductReadDto?> AddCategoryAsync(int productId, int categoryId);
+        Task<ProductReadDto?> RemoveCategoryAsync(int productId, int categoryId);
+        Task<ProductReadDto?> UpdateCategoriesAsync(int productId, List<int> categoryIds);
         Task<bool> DeleteAsync(int id);
     }
 }

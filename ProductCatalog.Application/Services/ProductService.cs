@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
 using ProductCatalog.Application.DTOs;
+using ProductCatalog.Application.Interfaces;
 using ProductCatalog.Domain.Entities;
 using ProductCatalog.Infrastructure.Common;
 using ProductCatalog.Infrastructure.Interfaces;
 
 namespace ProductCatalog.Application.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
         private readonly ICategoryRepository _categoryRepository;
