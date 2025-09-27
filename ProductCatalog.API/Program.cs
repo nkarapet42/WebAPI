@@ -1,11 +1,16 @@
+using AutoMapper;
+using FluentValidation.AspNetCore;
+using Microsoft.EntityFrameworkCore;
 using ProductCatalog.Application.Interfaces;
-using ProductCatalog.Application.Services;
 using ProductCatalog.Application.Mapping;
+using ProductCatalog.Application.Services;
+using ProductCatalog.Application.Validators;
 using ProductCatalog.Infrastructure.Data;
 using ProductCatalog.Infrastructure.Interfaces;
 using ProductCatalog.Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
-using AutoMapper;
+using ProductCatalog.API.Middleware;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +30,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddControllers()
+    .AddFluentValidation(fv =>
+        fv.RegisterValidatorsFromAssemblyContaining<ProductCreateDtoValidator>());
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -36,5 +45,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.Run();
