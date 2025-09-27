@@ -37,6 +37,39 @@ namespace ProductCatalog.Domain.Entities
             Name = name;
             _categories.AddRange(categoriesList);
         }
+        public void AddCategory(Category category)
+        {
+            if (category == null)
+            {
+                throw new ArgumentNullException(nameof(category));
+            }
+            if (_categories.Contains(category))
+            {
+                throw new ArgumentException("Category already exists in product.", nameof(category));
+            }
+            if (_categories.Count >= 3)
+            {
+                throw new InvalidOperationException("Product cannot have more than 3 categories.");
+            }
+            _categories.Add(category);
+        }
+
+        public void RemoveCategory(Category category)
+        {
+            if (category == null)
+            {
+                throw new ArgumentNullException(nameof(category));
+            }
+            if (!_categories.Contains(category))
+            {
+                throw new ArgumentException("Category not found in product.", nameof(category));
+            }
+            if (_categories.Count <= 2)
+            {
+                throw new InvalidOperationException("Product must have at least 2 categories.");
+            }
+            _categories.Remove(category);
+        }
 
         public void UpdateName(string name)
         {
@@ -45,28 +78,6 @@ namespace ProductCatalog.Domain.Entities
                 throw new ArgumentException("Fill the name, to update.", nameof(name));
             }
             Name = name;
-        }
-
-        public void UpdateCategory(Category oldCategory, Category newCategory)
-        {
-            if (oldCategory == null)
-            {
-                throw new ArgumentNullException(nameof(oldCategory), "Old category cannot be null.");
-            }
-            if (newCategory == null)
-            {
-                throw new ArgumentNullException(nameof(newCategory), "New category cannot be null.");
-            }
-            var index = _categories.IndexOf(oldCategory);
-            if (index == -1)
-            {
-                throw new ArgumentException("Old category not found in product categories.", nameof(oldCategory));
-            }
-            if (_categories.Contains(newCategory))
-            {
-                throw new ArgumentException("New category already exists in product categories.", nameof(newCategory));
-            }
-            _categories[index] = newCategory;
         }
 
         public void UpdateCategories(IEnumerable<Category> categories)
